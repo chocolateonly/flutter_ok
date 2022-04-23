@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
         GlobalCupertinoLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate
       ],
+      supportedLocales: S.delegate.supportedLocales,
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -36,12 +37,17 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required String title}) : super(key: key);
-
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  bool _active = false;
+  void handleChange(bool newVal){
+      setState(() {
+         _active = newVal;
+      });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,8 +55,28 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text('Welcome to flutter'+S.of(context).index),
       ),
       body:Center(
-        child: Text('Hello world'),
+        child: ChildPage(
+          active:_active,
+          onChanged:handleChange
+        )
       )
+    );
+  }
+}
+
+
+class ChildPage extends StatelessWidget {
+  const ChildPage({Key? key, required this.onChanged,this.active = false}) : super(key: key);
+  final bool active;
+  final ValueChanged<bool> onChanged;
+  void handleTap(){
+    onChanged(!active);
+  }
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+        onTap: handleTap,
+        child: Text('Hello world')
     );
   }
 }
