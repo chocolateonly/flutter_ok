@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'generated/l10n.dart';
+import 'package:provider/provider.dart';
 void main() {
-  runApp(MyApp());
+  runApp(
+      MultiProvider(
+          providers:providers,
+          child: MyApp()
+      )
+  );
 }
 
 class MyApp extends StatelessWidget {
