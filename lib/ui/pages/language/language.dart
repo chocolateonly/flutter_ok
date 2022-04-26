@@ -10,7 +10,7 @@ class LanguagePage extends StatefulWidget {
 
 class _LanguagePageState extends State<LanguagePage> {
 
-  int _newValue=getStorage(LocaleModel.kLocaleIndex) ?? 0;
+  var _newValue=getStorage(LocaleModel.kLocaleIndex) ?? 0;
   @override
   Widget build(BuildContext context) {
     var localModelData=Provider.of<LocaleModel>(context);
@@ -34,7 +34,7 @@ class _LanguagePageState extends State<LanguagePage> {
                     print(index);
                     _newValue = index;
                   });
-                  localModelData.switchLocale(index);
+                  localModelData.switchLocale(_newValue);
                 },
               ),
             ],

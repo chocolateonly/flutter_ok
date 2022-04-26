@@ -16,7 +16,7 @@ class LocaleModel extends ChangeNotifier {
       return Locale(value[0], value.length == 2 ? value[1] : '');
   }
 
-  LocaleModel() {
+  setLocaleModel() {
     _localeIndex = getStorage(kLocaleIndex) ?? 0;
   }
 
