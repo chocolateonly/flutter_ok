@@ -18,6 +18,8 @@ class MyApp extends StatelessWidget {
         builder: (context, globalModel, localeModel, child) {
       return MaterialApp(
         title: 'Flutter Demo',
+        //去掉右上角debug
+        debugShowCheckedModeBanner: false,
         localizationsDelegates: [
           S.delegate,
           GlobalMaterialLocalizations.delegate,
