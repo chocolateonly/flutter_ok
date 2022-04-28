@@ -7,7 +7,7 @@ class LocaleModel extends ChangeNotifier {
   //
   static const kLocaleIndex = 'kLocaleIndex';
 
-  int _localeIndex = getStorage(kLocaleIndex) ?? 0;
+  int _localeIndex = 0;
 
   int get localeIndex => _localeIndex;
 
@@ -15,8 +15,13 @@ class LocaleModel extends ChangeNotifier {
       var value = localeValueList[_localeIndex].split("-");
       return Locale(value[0], value.length == 2 ? value[1] : '');
   }
+  LocaleModel()  {
+    getStorage(kLocaleIndex).then((val){
+      _localeIndex = val;
+    });
+  }
 
-  switchLocale(int index) {
+  switchLocale(index) {
     _localeIndex = index;
     notifyListeners();
     setStorage(kLocaleIndex, index);
