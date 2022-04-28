@@ -33,11 +33,12 @@ class MyApp extends StatelessWidget {
         //主题
         theme:  globalModel.themeData(),
         //路由
+        onGenerateRoute: Routers.generateRoute,
         initialRoute: getInitRoute(context),
 
         //页面
         // home: MyHomePage(title: 'Flutter Demo Home Page'),
-        home: LanguagePage(),
+        // home: LanguagePage(),
       );
     });
   }
@@ -45,8 +46,8 @@ class MyApp extends StatelessWidget {
 
 String getInitRoute(BuildContext context) {
   String routeName;
-  var token;
-  if (token != null) {
+  var token = 'aa';
+  if (token != '') {
     routeName = RouteName.tab;
   } else
     routeName = RouteName.login;

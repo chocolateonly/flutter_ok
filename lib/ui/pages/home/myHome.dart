@@ -23,9 +23,39 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
         appBar: AppBar(
           title: Text('welcome:' + widget.title + ':' + S.of(context).index),
+          leading: Builder(builder: (BuildContext context) {
+            return IconButton(
+              icon: const Icon(Icons.face),
+              onPressed: (){
+                Scaffold.of(context).openDrawer();
+              },
+            );
+          }),
         ),
-        body:
-        Center(child: ChildPage(active: _active, onChanged: handleChange)));
+        body: Center(child: ChildPage(active: _active, onChanged: handleChange)),
+        drawer: Drawer(
+          child: ListView(
+           padding: EdgeInsets.zero,
+           children: [
+             DrawerHeader(
+               decoration: BoxDecoration(
+                 color: Theme.of(context).accentColor,
+               ),
+               child: Text('Drawer Header'),
+             ),
+             ListTile(
+               title: const Text('Item 1'),
+               onTap: () {
+                 // Update the state of the app
+                 // ...
+                 // Then close the drawer
+                 Navigator.pop(context);
+               },
+             ),
+           ],
+          ),
+        ),
+    );
   }
 }
 
