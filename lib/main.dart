@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:flutter_ok/view_model/locale_model.dart';
 import 'package:flutter_ok/view_model/global_model.dart';
 import 'package:flutter_ok/ui/pages/language/language.dart';
+import 'package:flutter_ok/config/router_manager.dart';
 void main() {
   runApp(MultiProvider(providers: providers, child: MyApp()));
 }
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         //去掉右上角debug
         debugShowCheckedModeBanner: false,
+        //多语言
         localizationsDelegates: [
           S.delegate,
           GlobalMaterialLocalizations.delegate,
@@ -28,7 +30,12 @@ class MyApp extends StatelessWidget {
         ],
         supportedLocales: S.delegate.supportedLocales,
         locale: localeModel.locale,
+        //主题
         theme:  globalModel.themeData(),
+        //路由
+        initialRoute: getInitRoute(context),
+
+        //页面
         // home: MyHomePage(title: 'Flutter Demo Home Page'),
         home: LanguagePage(),
       );
@@ -36,48 +43,12 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  bool _active = false;
-
-  void handleChange(bool newVal) {
-    setState(() {
-      _active = newVal;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text('welcome:' + widget.title + ':' + S.of(context).index),
-        ),
-        body:
-            Center(child: ChildPage(active: _active, onChanged: handleChange)));
-  }
-}
-
-class ChildPage extends StatelessWidget {
-  const ChildPage({Key? key, required this.onChanged, this.active = false})
-      : super(key: key);
-  final bool active;
-  final ValueChanged<bool> onChanged;
-
-  void handleTap() {
-    onChanged(!active);
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-        onTap: handleTap,
-        child: Text('Hello world' + (this.active == true ? 'true' : 'false')));
-  }
+String getInitRoute(BuildContext context) {
+  String routeName;
+  var token;
+  if (token != null) {
+    routeName = RouteName.tab;
+  } else
+    routeName = RouteName.login;
+  return routeName;
 }
