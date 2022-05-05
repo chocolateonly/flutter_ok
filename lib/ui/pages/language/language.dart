@@ -25,7 +25,6 @@ class _LanguagePageState extends State<LanguagePage> {
       });
     });
 
-
     return Theme(
       data:themechange,
       child: Scaffold(

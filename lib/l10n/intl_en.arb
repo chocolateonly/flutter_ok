@@ -1,4 +1,6 @@
 {
   "index": "index",
-  "language": "language"
+  "language": "language",
+  "switchLanguage": "switch language",
+  "switchTheme": "switch theme"
 }

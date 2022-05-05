@@ -1,4 +1,6 @@
 {
   "index": "首页",
-  "language": "语言"
+  "language": "语言",
+  "switchLanguage": "切换多语言",
+  "switchTheme": "切换主题"
 }

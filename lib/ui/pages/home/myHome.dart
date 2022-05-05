@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ok/config/router_manager.dart';
 import 'package:flutter_ok/generated/l10n.dart';
+import 'package:flutter_ok/view_model/global_model.dart';
+import 'package:provider/provider.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
@@ -12,15 +14,14 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   bool _active = false;
-
   void handleChange(bool newVal) {
     setState(() {
       _active = newVal;
     });
   }
-
   @override
   Widget build(BuildContext context) {
+    var globalModelData = Provider.of<GlobalModel>(context);
     return Scaffold(
         appBar: AppBar(
           title: Text('welcome:' + widget.title + ':' + S.of(context).index),
@@ -42,16 +43,26 @@ class _MyHomePageState extends State<MyHomePage> {
                decoration: BoxDecoration(
                  color: Theme.of(context).accentColor,
                ),
-               child: Text('Drawer Header'),
+               child: Text('侧边 '),
              ),
              ListTile(
-               title: const Text('Item 1'),
+               title: Text(S.of(context).switchLanguage),
                onTap: () {
                  // Update the state of the app
                  // ...
                  // Then close the drawer
                  // Navigator.pop(context);
                  Navigator.of(context).pushNamed(RouteName.login);
+               },
+             ),
+             ListTile(
+               title: Text(S.of(context).switchTheme),
+               trailing: Icon(Icons.star),
+               onTap: () {
+                 // Update the state of the app
+                 // ...
+                 // Then close the drawer
+                 globalModelData.switchTheme();
                },
              ),
            ],
