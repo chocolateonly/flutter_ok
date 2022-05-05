@@ -8,14 +8,7 @@ class GlobalModel extends ChangeNotifier {
   get themeColor => _themeColor;
 
   themeData() {
-    var themeData = ThemeData(
-        accentColor: _themeColor, //修改文字颜色
-        primaryColor: _themeColor //修改背景主题色
-
-        );
-    themeData = themeData.copyWith(
-      appBarTheme: themeData.appBarTheme.copyWith(elevation: 0), //去掉导航阴影
-    );
+    var themeData = ThemeData();
     return themeData;
   }
 

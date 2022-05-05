@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ok/config/router_manager.dart';
 import 'package:flutter_ok/generated/l10n.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -49,7 +50,8 @@ class _MyHomePageState extends State<MyHomePage> {
                  // Update the state of the app
                  // ...
                  // Then close the drawer
-                 Navigator.pop(context);
+                 // Navigator.pop(context);
+                 Navigator.of(context).pushNamed(RouteName.login);
                },
              ),
            ],
