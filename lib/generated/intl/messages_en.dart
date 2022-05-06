@@ -26,6 +26,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "language": MessageLookupByLibrary.simpleMessage("language"),
         "switchLanguage":
             MessageLookupByLibrary.simpleMessage("switch language"),
-        "switchTheme": MessageLookupByLibrary.simpleMessage("switch theme")
+        "switchTheme": MessageLookupByLibrary.simpleMessage("switch theme"),
+        "tab1": MessageLookupByLibrary.simpleMessage("Index"),
+        "tab2": MessageLookupByLibrary.simpleMessage("My")
       };
 }

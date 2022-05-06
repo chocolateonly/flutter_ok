@@ -25,6 +25,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "index": MessageLookupByLibrary.simpleMessage("首页"),
         "language": MessageLookupByLibrary.simpleMessage("语言"),
         "switchLanguage": MessageLookupByLibrary.simpleMessage("切换多语言"),
-        "switchTheme": MessageLookupByLibrary.simpleMessage("切换主题")
+        "switchTheme": MessageLookupByLibrary.simpleMessage("切换主题"),
+        "tab1": MessageLookupByLibrary.simpleMessage("首页"),
+        "tab2": MessageLookupByLibrary.simpleMessage("我的")
       };
 }

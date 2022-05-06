@@ -2,5 +2,7 @@
   "index": "首页",
   "language": "语言",
   "switchLanguage": "切换多语言",
-  "switchTheme": "切换主题"
+  "switchTheme": "切换主题",
+  "tab1": "首页",
+  "tab2": "我的"
 }

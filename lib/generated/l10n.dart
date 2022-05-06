@@ -89,6 +89,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Index`
+  String get tab1 {
+    return Intl.message(
+      'Index',
+      name: 'tab1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `My`
+  String get tab2 {
+    return Intl.message(
+      'My',
+      name: 'tab2',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

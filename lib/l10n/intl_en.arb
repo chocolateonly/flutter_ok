@@ -2,5 +2,7 @@
   "index": "index",
   "language": "language",
   "switchLanguage": "switch language",
-  "switchTheme": "switch theme"
+  "switchTheme": "switch theme",
+  "tab1": "Index",
+  "tab2": "My"
 }
